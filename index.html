@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <div class="container">
+        <form action="#" onsubmit="return login()">
+            
+            <h1>Login</h1>
+            
+            <div class="inp"><label for="UN"> NAME:</label>
+             <input type="text" placeholder="Username" name="UN" required id="name"> <i class='bx bx-user'style='color:#ffffff' ></i>
+            </div>
+            <span id="name1" style="color: red;"></span><br>
+
+            <div class="inp"><label for="EM"> Email:</label>
+                <input type="text" placeholder="xyz@email.com" name="EM" required id="email"><i class='bx bx-envelope' style='color:#ffffff' ></i>
+            </div>
+            <span id="email1" style="color: red;"></span><br>
+
+            <div class="inp"><label for="PN">Phone:</label>
+                <input type="text" placeholder="Enter your phone no" required id="phone"><i class='bx bx-phone'style='color:#ffffff'  ></i>
+            </div>
+            <span id="phone1" style="color: red;"></span><br>
+
+            <div class="inp"><label for="AD">Address:</label>
+                <input type="text" placeholder="Enter your address" id="adress"><i class='bx bx-home' style='color:#ffffff'  ></i></i>
+                <span id="adress1" style="color: red;"></span><br>
+            </div>
+           <br>
+
+           <input type="submit" name="submit" id="submit" class="button">
+      
+        </form>  
+    </div>
+    <br><br><h5> Assignment by  PREM SARKAR</h5>
+
+    <script> 
+   login=()=>{
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let adress =document.getElementById("adress").value;
+    let regExp = /^[a-zA-Z]*$/
+    let regExp2 =/[*@]/
+    let regExp3 =/[*.]/
+
+    if(!name.match(regExp)){
+        document.getElementById("name1").innerHTML="** only alphabets are allowed"
+        document.getElementById("name").style.borderColor="red"
+        return false
+    }
+   else if(!email.match(regExp2)){
+        document.getElementById("email1").innerHTML="** @ should in your mail"
+        document.getElementById("email").style.borderColor="red"
+        return false
+    }
+    else if(!email.match(regExp3)){
+        document.getElementById("email1").innerHTML="dot ''.'' should in your mail"
+        document.getElementById("email").style.borderColor="red"
+        return false
+    }
+    else if(isNaN(phone)){
+        document.getElementById("phone").style.borderColor="red"
+        document.getElementById("phone1").innerHTML="** enter only numeric value"
+        return false;
+    }
+   else if(phone.length<10  ){
+        document.getElementById("phone").style.borderColor="red"
+        document.getElementById("phone1").innerHTML="** number should must be 10 digit"
+        return false
+    }
+   else if(phone.length>10  ){
+        document.getElementById("phone").style.borderColor="red"
+        document.getElementById("phone1").innerHTML="** number should must be 10 digit"
+        return false
+    }
+    else if (adress.length>200){
+        
+        document.getElementById("adress").style.borderColor="red"
+        document.getElementById("adress1").innerHTML="** adress should not contain more than 200 letters "
+        return false
+    }
+    else {return true}
+}
+    </script>
+</body>
+
+</html>
